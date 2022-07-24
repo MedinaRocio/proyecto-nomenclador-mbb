@@ -1,0 +1,47 @@
+<!--Plantilla base del proyecto. Contenido fijo-->
+
+{% load static %} 
+<!DOCTYPE html>
+<html> 
+
+    <head>
+
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="{% static '/estilos.css' %}" type="text/css"> 
+
+        <title>Actividades Economicas | MBB </title>
+
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"> 
+
+        <div id="logoMBB">
+
+        <img src="{% static 'logoMBB.png' %}"> 
+        
+        </div>
+
+    </head>
+
+    <body> 
+        <div class="contenedor">
+
+                <h1> Nomenclador de Actividades Económicas</h1>
+                    
+                <div>
+                    
+                    <!--Contenido cambiante-->
+                    
+                    {% block content %}
+
+
+
+                    {% endblock %}
+                    
+                    
+                </div>
+
+        </div>
+
+    </body> 
+
+</html>
+

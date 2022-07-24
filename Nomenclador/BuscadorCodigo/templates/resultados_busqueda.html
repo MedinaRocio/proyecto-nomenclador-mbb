@@ -1,0 +1,63 @@
+<!--Resultados de la busqueda de actividades-->
+
+{% extends "plantilla_base.html" %} 
+
+{% load static %} 
+
+{% block content %} <!--Bloque de contenido cambiante-->
+
+    <head>
+            <meta charset="utf-8">
+            <title>Resultado busqueda | MBB </title>
+
+    </head>
+
+    <body> 
+
+        <p> La busqueda ingresada fue: {{ query }} </p>           
+
+        {% if actividad%}               
+
+            <input type="checkbox" id="resultado"> </input>
+            <label for="resultado"> Resultado: {{ actividad|length }} actividades. </label>
+            <div class="boton_resultado">
+            
+            <div class="listaResultado"> 
+                <ul>
+                    <!--Recorre todos los resultados obtenidos en la busqueda y los muestra en una lista por codigo y por nombre de actividad-->
+
+                    {% for i in actividad %}
+
+                        <li>
+                            {{ i.codigo }} &nbsp; <!--Muestro el codigo encontrado-->
+
+                            {{ i.nombreActividad}} <!--Muestro la actividad encontrada-->
+                        
+                        </li>
+                
+                    {% endfor %} 
+                </ul>
+
+            </div>
+
+        {% else %}   
+
+            <p> La actividad ingresada no es válida </p>
+
+        {% endif %}
+
+        </div>
+
+
+        <form method='POST' action="/inicio/">
+            {% csrf_token %}
+            <button type='submit'class="otra_busqueda"> Realizar otra busqueda </button>
+        </form>
+
+        
+
+            
+        
+        
+    </body> 
+{% endblock %}
